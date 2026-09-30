@@ -20,86 +20,48 @@ function createNatureAnimations(){
   const target=document.querySelector(".see-all-button");
   if(!layer || !target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+  const leafColors=["leaf-green","leaf-yellow","leaf-orange"];
+  const leafTypes=["leaf-oval","leaf-maple","leaf-slim"];
+
   const makeLeaf=()=>{
     if(!document.body.contains(layer)) return;
     const leaf=document.createElement("span");
-    leaf.className="falling-leaf";
+    leaf.className=`falling-leaf ${leafColors[Math.floor(Math.random()*leafColors.length)]} ${leafTypes[Math.floor(Math.random()*leafTypes.length)]}`;
     leaf.style.setProperty("--leaf-x",`${Math.random()*100}vw`);
     leaf.style.setProperty("--leaf-duration",`${8+Math.random()*6}s`);
+    leaf.style.setProperty("--leaf-size",`${.72+Math.random()*.55}`);
+    leaf.style.setProperty("--leaf-sway",`${5+Math.random()*8}vw`);
     layer.appendChild(leaf);
     leaf.addEventListener("animationend",()=>leaf.remove(),{once:true});
   };
-  const makeFlock=()=>{
-    const count=3+Math.floor(Math.random()*3);
-    for(let i=0;i<count;i++){
-      const bird=document.createElement("div");
-      bird.className="flock-bird";
-      bird.style.setProperty("--bird-y",`${12+Math.random()*38}vh`);
-      bird.style.setProperty("--bird-drift",`${-4+Math.random()*8}vh`);
-      bird.style.setProperty("--bird-scale",`${.72+Math.random()*.35}`);
-      bird.style.setProperty("--bird-duration",`${8+Math.random()*4}s`);
-      bird.style.animationDelay=`${i*.18}s`;
-      bird.innerHTML='<svg viewBox="0 0 48 28"><path d="M2 15c7-7 12-7 21 0 8-8 14-8 23-1-8-1-14 2-20 8-6-6-13-8-24-7z"/></svg>';
-      layer.appendChild(bird);
-      bird.addEventListener("animationend",()=>bird.remove(),{once:true});
-    }
-  };
 
-  for(let i=0;i<3;i++) setTimeout(makeLeaf,i*1200);
-  setInterval(makeLeaf,5000+Math.random()*2500);
-  setTimeout(makeFlock,3500);
-  setInterval(makeFlock,17000+Math.random()*8000);
+  for(let i=0;i<5;i++) setTimeout(makeLeaf,i*900);
+  setInterval(makeLeaf,2200+Math.random()*1800);
 
-  const special=document.createElement("div");
-  special.className="special-bird";
-  special.innerHTML='<svg viewBox="0 0 54 36"><g class="bird-head"><ellipse class="bird-body" cx="26" cy="19" rx="13" ry="9"/><circle class="bird-body" cx="39" cy="13" r="7"/><path class="bird-beak" d="M45 13l8 3-8 3z"/><circle class="bird-eye" cx="41" cy="11" r="1.2"/></g><path class="bird-wing" d="M15 19c5-9 13-9 18 0-6-2-10 1-13 6z"/></svg>';
-  document.body.appendChild(special);
-  const grain=document.createElement("div");
-  grain.className="grain-specks";
-  grain.innerHTML="<span></span><span></span><span></span><span></span>";
-  document.body.appendChild(grain);
+  const sun=document.createElement("div");
+  sun.className="button-sun";
+  sun.setAttribute("aria-hidden","true");
+  sun.innerHTML='<span class="sun-core"></span><span class="sun-rays"></span>';
+  layer.appendChild(sun);
 
-  let busy=false;
-  const runButtonBird=()=>{
-    if(busy || !document.body.contains(target) || target.offsetParent===null) return;
-    busy=true;
+  let sunBusy=false;
+  const showSun=()=>{
+    if(sunBusy || !document.body.contains(target) || target.offsetParent===null) return;
+    sunBusy=true;
     const r=target.getBoundingClientRect();
-    const startX=-70, startY=Math.max(70,window.innerHeight*.18+Math.random()*window.innerHeight*.25);
-    const landX=r.left+r.width/2-27;
-    const landY=Math.max(8,r.top-31);
-    special.style.transition="none";
-    special.style.opacity="0";
-    special.style.transform=`translate(${startX}px,${startY}px) rotate(-4deg)`;
-    requestAnimationFrame(()=>{
-      special.style.transition="transform 3.2s cubic-bezier(.35,.05,.2,1), opacity .25s ease";
-      special.style.opacity="1";
-      special.style.transform=`translate(${landX}px,${landY}px) rotate(0deg)`;
-    });
+    const x=r.left+r.width/2;
+    const y=r.top+r.height/2;
+    sun.style.left=`${x}px`;
+    sun.style.top=`${y}px`;
+    sun.classList.remove("sun-show");
+    requestAnimationFrame(()=>sun.classList.add("sun-show"));
     setTimeout(()=>{
-      special.style.transition="transform .45s ease";
-      special.style.transform=`translate(${landX}px,${Math.max(0,landY-8)}px) rotate(0deg)`;
-      setTimeout(()=>{
-        special.classList.add("pecking");
-        const rr=target.getBoundingClientRect();
-        grain.style.left=`${rr.left+rr.width*.58}px`;
-        grain.style.top=`${rr.top+8}px`;
-        grain.classList.add("visible");
-      },220);
-    },3300);
-    setTimeout(()=>{
-      special.classList.remove("pecking");
-      grain.classList.remove("visible");
-      const rr=target.getBoundingClientRect();
-      const flyX=window.innerWidth+70;
-      const flyY=Math.max(20,rr.top-130-Math.random()*80);
-      special.style.transition="transform 2.7s cubic-bezier(.2,.5,.5,1), opacity .45s ease";
-      special.style.transform=`translate(${flyX}px,${flyY}px) rotate(-8deg)`;
-      special.style.opacity="0";
-      setTimeout(()=>{busy=false; scheduleButtonBird();},3000);
-    },6500);
+      sun.classList.remove("sun-show");
+      setTimeout(()=>{sunBusy=false;scheduleSun();},9000+Math.random()*10000);
+    },3000);
   };
-  const scheduleButtonBird=()=>setTimeout(runButtonBird,18000+Math.random()*16000);
-  scheduleButtonBird();
+  const scheduleSun=()=>setTimeout(showSun,11000+Math.random()*12000);
+  scheduleSun();
 }
 
 function init(){

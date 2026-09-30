@@ -301,45 +301,28 @@ footer p { max-width:600px; margin:15px auto; font-size:.83rem; }
 
 /* v8 nature motion */
 .nature-animation-layer { position:fixed; inset:0; z-index:20; pointer-events:none; overflow:hidden; }
-.falling-leaf { position:absolute; top:-60px; width:22px; height:30px; opacity:.72; transform-origin:50% 50%; animation:leafFall var(--leaf-duration,11s) linear forwards; }
-.falling-leaf::before { content:""; position:absolute; inset:2px 5px 5px 5px; border-radius:80% 10% 80% 10%; background:linear-gradient(135deg,#7f9b67,#b7c78e); transform:rotate(28deg); box-shadow:0 0 8px rgba(79,116,91,.12); }
+.falling-leaf { position:absolute; top:-60px; left:0; width:25px; height:31px; opacity:.72; transform-origin:50% 50%; animation:leafFall var(--leaf-duration,11s) linear forwards; transform:scale(var(--leaf-size,1)); }
+.falling-leaf::before { content:""; position:absolute; inset:2px 5px 5px 5px; transform:rotate(28deg); box-shadow:0 0 8px rgba(79,116,91,.12); }
 .falling-leaf::after { content:""; position:absolute; left:10px; top:7px; width:1px; height:20px; background:rgba(64,83,54,.45); transform:rotate(28deg); transform-origin:top; }
+.falling-leaf.leaf-green::before { background:linear-gradient(135deg,#4f745b,#8eaa78); }
+.falling-leaf.leaf-yellow::before { background:linear-gradient(135deg,#d7a83e,#f1d36e); }
+.falling-leaf.leaf-orange::before { background:linear-gradient(135deg,#c86f32,#e6a04c); }
+.falling-leaf.leaf-oval::before { border-radius:80% 10% 80% 10%; }
+.falling-leaf.leaf-maple::before { inset:2px 3px 5px; border-radius:45% 55% 35% 60%; clip-path:polygon(50% 0,63% 27%,93% 18%,77% 48%,100% 65%,67% 64%,72% 100%,50% 76%,28% 100%,33% 64%,0 65%,23% 48%,7% 18%,37% 27%); transform:rotate(20deg); }
+.falling-leaf.leaf-slim::before { inset:3px 8px 4px; border-radius:90% 8% 90% 8%; transform:rotate(42deg) skewY(-8deg); }
 @keyframes leafFall {
-  0% { transform:translate3d(var(--leaf-x,0vw),-8vh,0) rotate(0deg); opacity:0; }
+  0% { transform:translate3d(var(--leaf-x,0vw),-8vh,0) rotate(0deg) scale(var(--leaf-size,1)); opacity:0; }
   8% { opacity:.72; }
-  35% { transform:translate3d(calc(var(--leaf-x,0vw) + 7vw),35vh,0) rotate(130deg); }
-  70% { transform:translate3d(calc(var(--leaf-x,0vw) - 5vw),75vh,0) rotate(260deg); }
-  100% { transform:translate3d(calc(var(--leaf-x,0vw) + 9vw),112vh,0) rotate(390deg); opacity:0; }
+  35% { transform:translate3d(calc(var(--leaf-x,0vw) + var(--leaf-sway,7vw)),35vh,0) rotate(130deg) scale(var(--leaf-size,1)); }
+  70% { transform:translate3d(calc(var(--leaf-x,0vw) - 5vw),75vh,0) rotate(260deg) scale(var(--leaf-size,1)); }
+  100% { transform:translate3d(calc(var(--leaf-x,0vw) + 9vw),112vh,0) rotate(390deg) scale(var(--leaf-size,1)); opacity:0; }
 }
-.flock-bird { position:absolute; width:42px; height:26px; left:-70px; top:var(--bird-y,25vh); opacity:.75; animation:flockFly var(--bird-duration,10s) linear forwards; }
-.flock-bird svg { width:100%; height:100%; overflow:visible; }
-.flock-bird path { fill:none; stroke:#29453a; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-@keyframes flockFly {
-  0% { transform:translate3d(-8vw,0,0) scale(var(--bird-scale,1)); opacity:0; }
-  8% { opacity:.72; }
-  45% { transform:translate3d(45vw,var(--bird-drift,2vh),0) scale(var(--bird-scale,1)); }
-  92% { opacity:.72; }
-  100% { transform:translate3d(112vw,calc(var(--bird-drift,2vh) - 2vh),0) scale(var(--bird-scale,1)); opacity:0; }
-}
-.special-bird { position:fixed; z-index:35; width:54px; height:36px; left:0; top:0; opacity:0; pointer-events:none; transform:translate(-100px,-100px); }
-.special-bird svg { width:100%; height:100%; overflow:visible; }
-.special-bird .bird-body { fill:#5c4938; }
-.special-bird .bird-wing { fill:#80644c; transform-origin:20px 18px; }
-.special-bird .bird-beak { fill:#d7a83e; }
-.special-bird .bird-eye { fill:#102b25; }
-.special-bird.pecking .bird-head { animation:birdPeck .48s ease-in-out infinite; transform-origin:39px 13px; }
-.special-bird.pecking .bird-wing { animation:birdNibbleWing .9s ease-in-out infinite; }
-@keyframes birdPeck {
-  0%,100% { transform:rotate(0deg) translate(0,0); }
-  45% { transform:rotate(12deg) translate(2px,4px); }
-}
-@keyframes birdNibbleWing {
-  50% { transform:rotate(-8deg); }
-}
-.grain-specks { position:fixed; z-index:34; pointer-events:none; display:flex; gap:4px; opacity:0; }
-.grain-specks span { width:5px; height:5px; border-radius:50%; background:#d7a83e; box-shadow:0 1px 2px rgba(0,0,0,.15); }
-.grain-specks.visible { opacity:1; animation:grainFlicker .48s ease-in-out infinite alternate; }
-@keyframes grainFlicker { from { transform:translateY(0); } to { transform:translateY(2px); } }
+.button-sun { position:fixed; width:145px; height:145px; margin:-72.5px 0 0 -72.5px; border-radius:50%; opacity:0; transform:scale(.35); z-index:21; transition:opacity .45s ease,transform .6s cubic-bezier(.2,.8,.2,1); }
+.button-sun.sun-show { opacity:1; transform:scale(1); }
+.sun-core { position:absolute; inset:25px; border-radius:50%; background:radial-gradient(circle,#fff4a8 0%,#f3c84e 45%,#d7a83e 72%,rgba(215,168,62,0) 73%); box-shadow:0 0 28px 12px rgba(244,211,105,.42); }
+.sun-rays { position:absolute; inset:0; border-radius:50%; background:repeating-conic-gradient(from 0deg,rgba(244,211,105,.48) 0deg 5deg,transparent 5deg 20deg); mask:radial-gradient(circle,transparent 0 45%,#000 46% 62%,transparent 63%); -webkit-mask:radial-gradient(circle,transparent 0 45%,#000 46% 62%,transparent 63%); animation:sunSpin 5s linear infinite; }
+@keyframes sunSpin { to { transform:rotate(360deg); } }
+.see-all-button { position:relative; z-index:22; }
 @media (prefers-reduced-motion: reduce) {
-  .nature-animation-layer, .special-bird, .grain-specks { display:none !important; }
+  .nature-animation-layer { display:none !important; }
 }

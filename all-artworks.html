@@ -52,7 +52,17 @@
   <script>
     document.addEventListener("DOMContentLoaded",()=>{
       const g=document.getElementById("allGalleryGrid");
-      if(g) g.replaceChildren(...ARTWORKS.map(createArtworkCard));
+      if(g){
+        g.replaceChildren();
+        if(ARTWORKS.length){
+          g.append(...ARTWORKS.map(createArtworkCard));
+        } else {
+          const empty=document.createElement("p");
+          empty.className="no-artwork-message";
+          empty.textContent="No Artwork available yet";
+          g.appendChild(empty);
+        }
+      }
     });
   </script>
 </body>

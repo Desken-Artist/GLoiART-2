@@ -17,57 +17,43 @@ function createArtworkCard(art,index){
 
 function createNatureAnimations(){
   const layer=document.getElementById("natureAnimationLayer");
-  const target=document.querySelector(".see-all-button");
-  if(!layer || !target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if(!layer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   const leafColors=["leaf-green","leaf-yellow","leaf-orange"];
   const leafTypes=["leaf-oval","leaf-maple","leaf-slim"];
+  const maxLeaves=3;
 
   const makeLeaf=()=>{
     if(!document.body.contains(layer)) return;
+    if(layer.querySelectorAll(".falling-leaf").length >= maxLeaves) return;
     const leaf=document.createElement("span");
     leaf.className=`falling-leaf ${leafColors[Math.floor(Math.random()*leafColors.length)]} ${leafTypes[Math.floor(Math.random()*leafTypes.length)]}`;
     leaf.style.setProperty("--leaf-x",`${Math.random()*100}vw`);
-    leaf.style.setProperty("--leaf-duration",`${8+Math.random()*6}s`);
+    leaf.style.setProperty("--leaf-duration",`${9+Math.random()*5}s`);
     leaf.style.setProperty("--leaf-size",`${.72+Math.random()*.55}`);
     leaf.style.setProperty("--leaf-sway",`${5+Math.random()*8}vw`);
     layer.appendChild(leaf);
     leaf.addEventListener("animationend",()=>leaf.remove(),{once:true});
   };
 
-  for(let i=0;i<5;i++) setTimeout(makeLeaf,i*900);
-  setInterval(makeLeaf,2200+Math.random()*1800);
-
-  const sun=document.createElement("div");
-  sun.className="button-sun";
-  sun.setAttribute("aria-hidden","true");
-  sun.innerHTML='<span class="sun-core"></span><span class="sun-rays"></span>';
-  layer.appendChild(sun);
-
-  let sunBusy=false;
-  const showSun=()=>{
-    if(sunBusy || !document.body.contains(target) || target.offsetParent===null) return;
-    sunBusy=true;
-    const r=target.getBoundingClientRect();
-    const x=r.left+r.width/2;
-    const y=r.top+r.height/2;
-    sun.style.left=`${x}px`;
-    sun.style.top=`${y}px`;
-    sun.classList.remove("sun-show");
-    requestAnimationFrame(()=>sun.classList.add("sun-show"));
-    setTimeout(()=>{
-      sun.classList.remove("sun-show");
-      setTimeout(()=>{sunBusy=false;scheduleSun();},9000+Math.random()*10000);
-    },3000);
-  };
-  const scheduleSun=()=>setTimeout(showSun,11000+Math.random()*12000);
-  scheduleSun();
+  makeLeaf();
+  setTimeout(makeLeaf,1600);
+  setTimeout(makeLeaf,3200);
+  setInterval(makeLeaf,5000+Math.random()*2500);
 }
 
 function init(){
   const g=document.getElementById("galleryGrid");
   if(g){
-    g.replaceChildren(...ARTWORKS.slice(0,4).map(createArtworkCard));
+    g.replaceChildren();
+    if(ARTWORKS.length){
+      g.append(...ARTWORKS.slice(0,4).map(createArtworkCard));
+    } else {
+      const empty=document.createElement("p");
+      empty.className="no-artwork-message";
+      empty.textContent="No Artwork available yet";
+      g.appendChild(empty);
+    }
     const seeAllWrap=document.getElementById("seeAllWrap");
     if(seeAllWrap) seeAllWrap.hidden=ARTWORKS.length<=4;
   }

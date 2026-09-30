@@ -1,0 +1,192 @@
+:root {
+  --forest: #183b32;
+  --forest-deep: #102b25;
+  --leaf: #4f745b;
+  --sage: #a8b99e;
+  --cream: #f4f0e5;
+  --paper: #fbfaf6;
+  --ink: #1e2925;
+  --muted: #68736d;
+  --gold: #d7a83e;
+  --gold-light: #efd27b;
+  --line: rgba(24,59,50,.15);
+  --shadow: 0 18px 50px rgba(16,43,37,.12);
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.65;
+}
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 15px clamp(18px, 5vw, 70px);
+  background: rgba(251,250,246,.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display:flex; align-items:center; gap:10px; font-family:"Cormorant Garamond",serif; font-weight:700; font-size:1.65rem; letter-spacing:.03em; }
+.brand > span:last-child span { color: var(--gold); }
+.brand-mark {
+  display:grid; place-items:center; width:35px; height:35px;
+  border: 1px solid var(--forest); border-radius:50%;
+  color:var(--forest); font-family:"Cormorant Garamond",serif; font-size:1.35rem;
+}
+nav { display:flex; align-items:center; gap:26px; font-size:.9rem; }
+nav a { color:var(--forest); }
+nav a:hover { color:var(--gold); }
+.nav-contact { padding:9px 15px; border:1px solid var(--forest); border-radius:999px; }
+
+.hero { position:relative; min-height:min(760px, 84vh); overflow:hidden; color:#fff; }
+.hero-art { position:absolute; inset:0; background:linear-gradient(160deg,#b8c6b3 0%,#dfe0cf 46%,#9eae9d 100%); }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(12,39,31,.84),rgba(12,39,31,.35) 56%,rgba(12,39,31,.1)); }
+.hero-content { position:relative; z-index:2; max-width:850px; padding:clamp(110px,16vw,190px) clamp(22px,8vw,120px); }
+.eyebrow { text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; font-weight:600; color:var(--leaf); margin:0 0 12px; }
+.hero .eyebrow { color:var(--gold-light); }
+h1,h2 { font-family:"Cormorant Garamond", Georgia, serif; line-height:.98; margin:0; font-weight:600; }
+h1 { font-size:clamp(3rem,7vw,6.3rem); max-width:900px; }
+h1 span { color:#a9d28f; }
+h1 strong { color:var(--gold-light); font-weight:600; }
+.hero-copy { max-width:600px; font-size:1.05rem; margin:26px 0 30px; color:rgba(255,255,255,.86); }
+.button {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 20px; border-radius:999px; font-weight:600; font-size:.9rem;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.button:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,0,0,.15); }
+.button-light { background:#fff; color:var(--forest); }
+.button-gold { background:var(--gold); color:#18251f; }
+
+.room-window { position:absolute; width:24%; height:45%; right:8%; top:10%; background:linear-gradient(#9fc4ce 0 58%,#738b70 58%); border:18px solid rgba(255,255,255,.55); box-shadow:0 25px 55px rgba(0,0,0,.15); }
+.wall-art { position:absolute; width:24%; aspect-ratio:4/5; right:37%; top:16%; background:#c6bba2; border:13px solid #e5dfd2; box-shadow:0 25px 55px rgba(0,0,0,.18); overflow:hidden; }
+.painting-sky { position:absolute; inset:0 0 55%; background:#9bb9bd; }
+.painting-hills { position:absolute; left:-10%; right:-10%; bottom:32%; height:48%; background:#536f59; clip-path:polygon(0 75%,25% 30%,45% 65%,65% 10%,100% 72%,100% 100%,0 100%); }
+.painting-field { position:absolute; inset:58% 0 0; background:#c9ad61; }
+.painting-sun { position:absolute; width:18%; aspect-ratio:1; border-radius:50%; background:#f2d37b; top:17%; right:15%; }
+.sofa { position:absolute; left:31%; right:7%; bottom:8%; height:29%; background:#87735d; border-radius:30px 30px 15px 15px; box-shadow:0 28px 45px rgba(0,0,0,.2); }
+.sofa:before { content:""; position:absolute; left:0; right:0; top:-30%; height:45%; background:#9b876e; border-radius:25px 25px 8px 8px; }
+.sofa span { position:absolute; width:23%; height:45%; background:#c3b398; border-radius:10px; top:10%; }
+.sofa span:first-child { left:7%; transform:rotate(-5deg); }
+.sofa span:last-child { right:7%; transform:rotate(5deg); }
+.plant { position:absolute; bottom:18%; width:11%; height:35%; }
+.plant-left { left:10%; }
+.plant-right { right:2%; bottom:20%; }
+.plant:before { content:""; position:absolute; bottom:0; left:35%; width:30%; height:35%; background:#9a6e4e; border-radius:5px 5px 20px 20px; }
+.plant i { position:absolute; bottom:28%; left:50%; width:35%; height:55%; background:#315a43; border-radius:100% 0 100% 0; transform-origin:bottom left; }
+.plant i:nth-child(1){transform:rotate(-55deg)}
+.plant i:nth-child(2){transform:rotate(-28deg) translateX(10px)}
+.plant i:nth-child(3){transform:rotate(12deg)}
+.plant i:nth-child(4){transform:rotate(38deg)}
+.plant i:nth-child(5){transform:rotate(65deg)}
+
+.intro { padding:100px 22px 75px; text-align:center; max-width:900px; margin:auto; }
+.intro h2 { font-size:clamp(2.5rem,5vw,4.3rem); color:var(--forest); }
+.intro > p:last-child { color:var(--muted); max-width:650px; margin:22px auto 0; }
+
+.section { padding:90px clamp(20px,6vw,90px); }
+.gallery-section { background:#eef1e9; }
+.section-heading { display:flex; justify-content:space-between; gap:40px; align-items:end; margin-bottom:45px; }
+.section-heading h2 { color:var(--forest); font-size:clamp(2.6rem,5vw,4.7rem); }
+.section-note { max-width:390px; color:var(--muted); margin:0; }
+
+.gallery-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+.art-card { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:0 8px 30px rgba(24,59,50,.06); }
+.art-image-wrap { background:#e4e7df; }
+.art-image { width:100%; height:auto; object-fit:contain; }
+.art-info { padding:22px; }
+.art-title { font-family:"Cormorant Garamond",serif; font-size:1.9rem; color:var(--forest); margin:0 0 7px; }
+.art-description { color:var(--muted); font-size:.9rem; margin:0 0 18px; }
+.meta-row { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px; font-size:.78rem; }
+.availability { display:inline-flex; align-items:center; gap:7px; font-weight:600; }
+.availability:before { content:""; width:8px; height:8px; border-radius:50%; background:#6e9a65; }
+.availability.sold:before { background:#a07c74; }
+.card-actions { display:flex; gap:9px; flex-wrap:wrap; }
+.card-actions a, .card-actions button { flex:1; min-width:125px; }
+.small-button { padding:10px 13px; border-radius:999px; border:1px solid var(--forest); background:transparent; color:var(--forest); cursor:pointer; font:600 .82rem Inter,sans-serif; }
+.small-button.primary { background:var(--forest); color:#fff; }
+.small-button.whatsapp { border-color:#648b68; color:#315c3b; }
+
+.details {
+  border-top:1px solid var(--line); margin-top:18px; padding-top:18px;
+}
+.details summary { cursor:pointer; list-style:none; color:var(--forest); font-weight:600; font-size:.85rem; }
+.details summary::-webkit-details-marker { display:none; }
+.details summary:after { content:"＋"; float:right; font-size:1.1rem; }
+.details[open] summary:after { content:"−"; }
+.details-content { padding-top:18px; display:grid; gap:22px; }
+.detail-copy h3 { font-family:"Cormorant Garamond",serif; font-size:1.55rem; margin:0 0 5px; color:var(--forest); }
+.detail-copy p { margin:0 0 10px; color:var(--muted); font-size:.88rem; }
+.process-video { width:100%; border-radius:13px; background:#122c25; aspect-ratio:16/9; }
+.video-label { font-size:.72rem; text-transform:uppercase; letter-spacing:.12em; color:var(--leaf); }
+.print-box { background:#f1eadb; border-radius:13px; padding:16px; }
+.print-box strong { color:var(--forest); }
+.print-box p { margin:4px 0 0; font-size:.83rem; color:var(--muted); }
+
+.about-artist { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:center; background:var(--paper); }
+.artist-visual { min-height:460px; border-radius:28px; background:radial-gradient(circle at 70% 20%,#a9bf9f 0 8%,transparent 9%), linear-gradient(145deg,#1b4438,#5d765a); display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; overflow:hidden; position:relative; }
+.artist-visual:before { content:""; position:absolute; width:300px; height:300px; border:1px solid rgba(255,255,255,.2); border-radius:50%; box-shadow:0 0 0 45px rgba(255,255,255,.04),0 0 0 90px rgba(255,255,255,.025); }
+.artist-monogram { font-family:"Cormorant Garamond",serif; font-size:8rem; line-height:1; z-index:1; color:var(--gold-light); }
+.artist-visual p { z-index:1; letter-spacing:.13em; text-transform:uppercase; font-size:.7rem; }
+.about-copy h2 { font-size:clamp(2.7rem,5vw,4.5rem); color:var(--forest); margin-bottom:25px; }
+.about-copy p { color:var(--muted); max-width:700px; }
+.about-copy blockquote { border-left:3px solid var(--gold); padding-left:20px; font-family:"Cormorant Garamond",serif; font-size:1.5rem; color:var(--forest); margin-top:30px; }
+
+.about-gloliart { background:var(--forest-deep); color:#fff; }
+.about-gloliart .section-heading h2 { color:#fff; }
+.about-gloliart .section-heading p:last-child { color:rgba(255,255,255,.65); }
+.centered { display:block; text-align:center; }
+.centered > p:last-child { margin:15px auto 0; }
+.about-video { position:relative; max-width:1000px; margin:40px auto 0; border-radius:22px; overflow:hidden; background:#091914; box-shadow:var(--shadow); }
+.about-video video { width:100%; aspect-ratio:16/9; object-fit:cover; }
+.video-placeholder { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; pointer-events:none; background:linear-gradient(135deg,rgba(16,43,37,.85),rgba(16,43,37,.35)); }
+.video-placeholder span { font-family:"Cormorant Garamond",serif; font-size:2rem; color:var(--gold-light); }
+.video-placeholder small { color:rgba(255,255,255,.7); margin-top:7px; }
+
+.cta { margin:0; padding:70px clamp(20px,8vw,120px); background:#dfe7d9; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+.cta h2 { color:var(--forest); font-size:clamp(2.3rem,4vw,4rem); max-width:800px; }
+footer { background:#0c211c; color:rgba(255,255,255,.7); padding:45px clamp(20px,6vw,90px); text-align:center; }
+.footer-brand { display:flex; justify-content:center; align-items:center; gap:10px; color:#fff; font-family:"Cormorant Garamond",serif; font-size:1.5rem; }
+footer p { max-width:600px; margin:15px auto; font-size:.83rem; }
+.copyright { opacity:.5; }
+
+@media (max-width: 720px) {
+  .site-header { padding:12px 15px; }
+  nav { gap:10px; }
+  nav a:not(.nav-contact) { display:none; }
+  .nav-contact { padding:8px 12px; font-size:.75rem; }
+  .hero { min-height:720px; }
+  .hero-content { padding:115px 22px 80px; }
+  .hero-overlay { background:linear-gradient(180deg,rgba(12,39,31,.7),rgba(12,39,31,.75)); }
+  .room-window { width:42%; right:4%; top:10%; }
+  .wall-art { width:36%; right:42%; top:14%; }
+  .sofa { left:17%; right:2%; bottom:7%; }
+  .plant-left { left:0; }
+  .plant-right { display:none; }
+  .section { padding:65px 16px; }
+  .gallery-grid { gap:12px; }
+  .art-card { border-radius:13px; }
+  .art-info { padding:13px; }
+  .art-title { font-size:1.35rem; }
+  .art-description { font-size:.76rem; line-height:1.45; }
+  .meta-row { display:block; margin-bottom:11px; font-size:.68rem; }
+  .card-actions { gap:6px; }
+  .card-actions a, .card-actions button { min-width:0; padding:8px 6px; font-size:.68rem; }
+  .details { margin-top:11px; padding-top:11px; }
+  .details summary { font-size:.72rem; }
+  .section-heading { display:block; margin-bottom:30px; }
+  .section-note { margin-top:15px; font-size:.85rem; }
+  .about-artist { grid-template-columns:1fr; gap:35px; }
+  .artist-visual { min-height:330px; }
+  .cta { display:block; }
+  .cta .button { margin-top:20px; }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GLoiART — creating artworks inspired by the beauty of nature, that reflects the Glory of God.">
+  <title>GLoiART | Art inspired by nature & the Glory of God</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="GLoiART home">
+      <span class="brand-mark">G</span>
+      <span>GLoi<span>ART</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#gallery">Gallery</a>
+      <a href="#about-artist">Artist</a>
+      <a href="#about-gloliart">About GLoiART</a>
+      <a class="nav-contact" id="navWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-art" role="img" aria-label="Modern room interior with sofa, plant decor and nature artwork">
+        <div class="room-window"></div>
+        <div class="wall-art">
+          <div class="painting-sky"></div>
+          <div class="painting-hills"></div>
+          <div class="painting-field"></div>
+          <div class="painting-sun"></div>
+        </div>
+        <div class="plant plant-left"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="sofa"><span></span><span></span></div>
+        <div class="plant plant-right"><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">GLoiART • Art inspired by creation</p>
+        <h1>Decorate <span>your space</span> with Artworks that reflect the <strong>Glory of God</strong></h1>
+        <p class="hero-copy">Original artworks and prints inspired by the beauty of nature, its relationship with humanity, and the Creator.</p>
+        <a href="#gallery" class="button button-light">Explore the gallery</a>
+      </div>
+    </section>
+
+    <section class="intro">
+      <p class="eyebrow">Welcome to GLoiART</p>
+      <h2>Where nature becomes a window to wonder.</h2>
+      <p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p>
+    </section>
+
+    <section id="gallery" class="section gallery-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The collection</p>
+          <h2>Artwork Gallery</h2>
+        </div>
+        <p class="section-note">Explore each piece, watch its creation process, and enquire about originals or prints.</p>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <section id="about-artist" class="section about-artist">
+      <div class="artist-visual">
+        <div class="artist-monogram">MK</div>
+        <p>Artist • Illustrator • Creator</p>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">About the Artist</p>
+        <h2>Manesong Kenyem Tchoumen</h2>
+        <p>Manesong Kenyem Tchoumen holds a <strong>BFA degree from the Institute of Fine Arts Nkongsamba</strong>.</p>
+        <p>Inspired by the beauty of nature, its relationship with man and God, he seeks to create artworks that invite people to recognize the Glory of God in nature and to align themselves as well to glorify God in their lives.</p>
+        <blockquote>“Beauty can point beyond itself.”</blockquote>
+      </div>
+    </section>
+
+    <section id="about-gloliart" class="section about-gloliart">
+      <div class="section-heading centered">
+        <p class="eyebrow">The story behind the name</p>
+        <h2>About GLoiART</h2>
+        <p>One video that explains the vision behind the art.</p>
+      </div>
+      <div class="about-video">
+        <video controls preload="metadata" poster="assets/about-poster.svg">
+          <source src="assets/videos/about-gloliart.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="video-placeholder">
+          <span>YOUR GLoiART VIDEO</span>
+          <small>Replace <code>assets/videos/about-gloliart.mp4</code> with your video.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <p class="eyebrow">Interested in a piece?</p>
+        <h2>Let’s bring a little more nature into your space.</h2>
+      </div>
+      <a id="ctaWhatsApp" class="button button-gold" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <span class="brand-mark">G</span>
+      <strong>GLoiART</strong>
+    </div>
+    <p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p>
+    <p class="copyright">© <span id="year"></span> GLoiART. All rights reserved.</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

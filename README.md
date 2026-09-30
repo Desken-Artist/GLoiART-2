@@ -123,3 +123,7 @@ GitHub repositories are not ideal for large video files. For short process video
 
 Most future changes only require editing `config.js`. You do not need to change the HTML.
 
+
+
+### Logo
+The header uses `assets/logo-full.png` on desktop and `assets/logo-g.png` on mobile. Replace those files with updated transparent logo images if needed.

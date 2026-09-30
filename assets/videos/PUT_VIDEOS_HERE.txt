@@ -1,0 +1,2 @@
+Put your MP4 process videos in this folder.
+The filenames are configured in ../config.js.

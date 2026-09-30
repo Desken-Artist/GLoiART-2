@@ -1,1 +1,22 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Artwork | GLoiART</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body class="artwork-page"><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">G</span><span>GLoi<span>ART</span></span></a><nav><a href="index.html#gallery">Gallery</a><a id="detailWhatsApp" class="nav-contact" href="#" target="_blank">WhatsApp</a></nav></header><main id="artworkDetail"><div class="detail-loading">Loading artwork...</div></main><footer><div class="footer-brand"><span class="brand-mark">G</span><strong>GLoiART</strong></div><p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p><p class="copyright">© <span id="year"></span> GLoiART. All rights reserved.</p></footer><script src="config.js"></script><script src="artwork.js"></script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Artwork | GLoiART</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body class="artwork-page"><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">G</span><span>GLoi<span>ART</span></span></a><button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+<span></span><span></span><span></span>
+</button>
+<nav id="mainNav" class="main-nav" aria-label="Main navigation">
+<a href="index.html#gallery">Gallery</a><a href="index.html#about-artist">Artist</a><a href="index.html#about-gloliart">About GLoiART</a><a id="detailWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+</nav></header><main id="artworkDetail"><div class="detail-loading">Loading artwork...</div></main><footer><div class="footer-brand"><span class="brand-mark">G</span><strong>GLoiART</strong></div><p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p><p class="copyright">© <span id="year"></span> GLoiART. All rights reserved.</p></footer><script src="config.js"></script><script src="artwork.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const toggle=document.getElementById("menuToggle"),nav=document.getElementById("mainNav");
+ if(toggle&&nav){
+  toggle.addEventListener("click",()=>{
+   const open=nav.classList.toggle("open");
+   toggle.classList.toggle("open",open);
+   toggle.setAttribute("aria-expanded",String(open));
+   toggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+  });
+  nav.querySelectorAll("a[href^='index.html#']").forEach(a=>a.addEventListener("click",()=>{
+   nav.classList.remove("open");toggle.classList.remove("open");toggle.setAttribute("aria-expanded","false");
+  }));
+ }
+});
+</script></body></html>

@@ -1,3 +1,50 @@
 function whatsappUrl(message){return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message||"Hello GLoiART, I would like to enquire about an artwork.")}`;}
-function createArtworkCard(art,index){const sold=!art.original, m=`Hello GLoiART, I would like to enquire about "${art.title}".`,c=document.createElement("article");c.className="art-card";c.innerHTML=`<div class="art-image-wrap"><img class="art-image" src="${art.image}" alt="${art.title}" loading="lazy"></div><div class="art-info"><h3 class="art-title">${art.title}</h3><p class="art-description">${art.description}</p><div class="meta-row"><span class="availability ${sold?"sold":""}">${art.availability}</span></div><div class="card-actions"><a class="small-button whatsapp" href="${whatsappUrl(m)}" target="_blank">WhatsApp</a><a class="small-button primary" href="artwork.html?id=${index}">View artwork</a></div></div>`;return c;}
-function init(){const g=document.getElementById("galleryGrid");if(g)g.replaceChildren(...ARTWORKS.map(createArtworkCard));const m="Hello GLoiART, I would like to know more about your artworks.";const n=document.getElementById("navWhatsApp"),c=document.getElementById("ctaWhatsApp");if(n)n.href=whatsappUrl(m);if(c)c.href=whatsappUrl(m);const y=document.getElementById("year");if(y)y.textContent=new Date().getFullYear();}document.addEventListener("DOMContentLoaded",init);
+
+function createArtworkCard(art,index){
+  const m=`Hello GLoiART, I would like to enquire about "${art.title}".`;
+  const c=document.createElement("article");
+  c.className="art-card";
+  c.innerHTML=`<div class="art-image-wrap"><img class="art-image" src="${art.image}" alt="${art.title}" loading="lazy"></div>
+  <div class="art-info">
+    <h3 class="art-title">${art.title}</h3>
+    <div class="card-actions">
+      <a class="small-button whatsapp" href="${whatsappUrl(m)}" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="small-button primary" href="artwork.html?id=${index}">View artwork</a>
+    </div>
+  </div>`;
+  return c;
+}
+
+function init(){
+  const g=document.getElementById("galleryGrid");
+  if(g) g.replaceChildren(...ARTWORKS.slice(0,4).map(createArtworkCard));
+
+  const m="Hello GLoiART, I would like to know more about your artworks.";
+  const menuWhatsApp=document.getElementById("menuWhatsApp");
+  if(menuWhatsApp){
+    menuWhatsApp.href=whatsappUrl(m);
+    menuWhatsApp.target="_blank";
+    menuWhatsApp.rel="noopener";
+  }
+
+  const toggle=document.getElementById("menuToggle");
+  const nav=document.getElementById("mainNav");
+  if(toggle&&nav){
+    toggle.addEventListener("click",()=>{
+      const open=nav.classList.toggle("open");
+      toggle.classList.toggle("open",open);
+      toggle.setAttribute("aria-expanded",String(open));
+      toggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+    });
+    nav.querySelectorAll("a[href^='#']").forEach(a=>a.addEventListener("click",()=>{
+      nav.classList.remove("open");
+      toggle.classList.remove("open");
+      toggle.setAttribute("aria-expanded","false");
+      toggle.setAttribute("aria-label","Open navigation menu");
+    }));
+  }
+
+  const y=document.getElementById("year");
+  if(y)y.textContent=new Date().getFullYear();
+}
+document.addEventListener("DOMContentLoaded",init);

@@ -16,32 +16,31 @@
       <span class="brand-mark">G</span>
       <span>GLoi<span>ART</span></span>
     </a>
-    <nav aria-label="Main navigation">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav" class="main-nav" aria-label="Main navigation">
       <a href="#gallery">Gallery</a>
       <a href="#about-artist">Artist</a>
       <a href="#about-gloliart">About GLoiART</a>
-      <a class="nav-contact" id="navWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#" id="menuWhatsApp">WhatsApp</a>
     </nav>
   </header>
 
   <main id="home">
-    <section class="hero"><div class="hero-art" role="img" aria-label="Modern room interior with sofa, plant decor and nature artwork"><div class="room-window"></div><div class="wall-art"><div class="painting-sky"></div><div class="painting-hills"></div><div class="painting-field"></div><div class="painting-sun"></div></div><div class="plant plant-left"><i></i><i></i><i></i><i></i><i></i></div><div class="sofa"><span></span><span></span></div><div class="plant plant-right"><i></i><i></i><i></i></div></div><div class="hero-overlay"></div><div class="hero-content"><h1>Decorate <span>your space</span> with...</h1></div></section>
-
-    <section class="intro">
-      <p class="eyebrow">Welcome to GLoiART</p>
-      <h2>Where nature becomes a window to wonder.</h2>
-      <p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p>
-    </section>
-
+    <section class="hero"><div class="hero-art" role="img" aria-label="Modern room interior with sofa, plant decor and nature artwork"><div class="room-window"></div><div class="wall-art"><div class="painting-sky"></div><div class="painting-hills"></div><div class="painting-field"></div><div class="painting-sun"></div></div><div class="plant plant-left"><i></i><i></i><i></i><i></i><i></i></div><div class="sofa"><span></span><span></span></div><div class="plant plant-right"><i></i><i></i><i></i></div></div><div class="hero-overlay"></div><div class="hero-content"><h1>Decorate <span>your space</span> with Artworks that reflect the <em>Glory of God</em></h1></div></section>
     <section id="gallery" class="section gallery-section">
       <div class="section-heading">
         <div>
           <p class="eyebrow">The collection</p>
           <h2>Artwork Gallery</h2>
         </div>
-        <p class="section-note">Explore each piece, watch its creation process, and enquire about originals or prints.</p>
+        <p class="section-note">Explore selected pieces from the collection. Open an artwork to see its full details, process, and print options.</p>
       </div>
       <div id="galleryGrid" class="gallery-grid"></div>
+      <div class="see-all-wrap">
+        <a class="button button-gold see-all-button" href="all-artworks.html">See All Artworks</a>
+      </div>
     </section>
 
     <section id="about-artist" class="section about-artist">

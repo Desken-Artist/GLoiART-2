@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GLoiART — all artworks in the collection.">
+  <title>GLoiART | All Artworks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="GLoiART home">
+      <span class="brand-mark">G</span>
+      <span>GLoi<span>ART</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#about-artist">Artist</a>
+      <a href="index.html#about-gloliart">About GLoiART</a>
+      <a href="#" id="menuWhatsApp">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="all-artworks-header">
+      <a class="back-link" href="index.html#gallery">← Back to gallery</a>
+      <p class="eyebrow">The complete collection</p>
+      <h1>All Artworks</h1>
+      <p>Explore every artwork currently uploaded to the GLoiART collection.</p>
+    </section>
+    <section class="section gallery-section all-artworks-section">
+      <div id="allGalleryGrid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">G</span><strong>GLoiART</strong></div>
+    <p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p>
+    <p class="copyright">© <span id="year"></span> GLoiART. All rights reserved.</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",()=>{
+      const g=document.getElementById("allGalleryGrid");
+      if(g) g.replaceChildren(...ARTWORKS.map(createArtworkCard));
+    });
+  </script>
+</body>
+</html>

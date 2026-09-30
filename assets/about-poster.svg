@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#102b25"/>
+<circle cx="1250" cy="220" r="270" fill="#4f745b" opacity=".45"/>
+<circle cx="350" cy="720" r="300" fill="#d7a83e" opacity=".16"/>
+<text x="800" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="90" fill="#efd27b">GLoiART</text>
+<text x="800" y="510" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" letter-spacing="7" fill="#fff" opacity=".75">THE STORY BEHIND THE ART</text>
+</svg>

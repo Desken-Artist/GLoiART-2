@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9eb7bd"/><stop offset="1" stop-color="#eef0df"/></linearGradient></defs>
+<rect width="1000" height="1250" fill="#e9e5d9"/>
+<rect x="48" y="48" width="904" height="1154" rx="8" fill="url(#sky)"/>
+<circle cx="760" cy="280" r="105" fill="#dfc67a" opacity=".8"/>
+<path d="M48 760 L280 500 L430 650 L650 420 L952 750 V1202 H48Z" fill="#527177" opacity=".95"/>
+<path d="M48 850 Q300 680 520 820 T952 760 V1202 H48Z" fill="#8b9b67"/>
+<path d="M48 960 Q330 820 620 940 T952 900 V1202 H48Z" fill="#526b4c"/>
+<path d="M110 1090 Q350 900 530 1080 T900 1020" fill="none" stroke="#dfc67a" stroke-width="25" opacity=".75"/>
+<text x="500" y="1140" text-anchor="middle" font-family="Georgia,serif" font-size="42" fill="#fff" opacity=".9">The Quiet River</text>
+<text x="500" y="1178" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" letter-spacing="3" fill="#fff" opacity=".75">GLOIART SAMPLE ARTWORK</text>
+</svg>

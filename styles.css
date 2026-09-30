@@ -284,3 +284,62 @@ footer p { max-width:600px; margin:15px auto; font-size:.83rem; }
   .contact-actions { align-items:flex-start; margin-top:28px; }
   .contact-buttons { justify-content:flex-start; }
 }
+
+
+/* v7 commission/contact refinements */
+.cta { text-align:center; }
+.cta > div:first-child { max-width:900px; margin:0 auto; }
+.commission-title { margin:0; font-size:clamp(2.7rem,5vw,4.8rem); font-weight:800; letter-spacing:.03em; color:var(--forest); }
+.commission-copy { max-width:850px; margin:18px auto 0; font-size:1.08rem; line-height:1.7; color:var(--muted); }
+.contact-actions { align-items:center; margin:30px auto 0; }
+.contact-buttons { justify-content:center; }
+@media (max-width:720px) {
+  .contact-actions { align-items:center; }
+  .contact-buttons { justify-content:center; }
+}
+
+
+/* v8 nature motion */
+.nature-animation-layer { position:fixed; inset:0; z-index:20; pointer-events:none; overflow:hidden; }
+.falling-leaf { position:absolute; top:-60px; width:22px; height:30px; opacity:.72; transform-origin:50% 50%; animation:leafFall var(--leaf-duration,11s) linear forwards; }
+.falling-leaf::before { content:""; position:absolute; inset:2px 5px 5px 5px; border-radius:80% 10% 80% 10%; background:linear-gradient(135deg,#7f9b67,#b7c78e); transform:rotate(28deg); box-shadow:0 0 8px rgba(79,116,91,.12); }
+.falling-leaf::after { content:""; position:absolute; left:10px; top:7px; width:1px; height:20px; background:rgba(64,83,54,.45); transform:rotate(28deg); transform-origin:top; }
+@keyframes leafFall {
+  0% { transform:translate3d(var(--leaf-x,0vw),-8vh,0) rotate(0deg); opacity:0; }
+  8% { opacity:.72; }
+  35% { transform:translate3d(calc(var(--leaf-x,0vw) + 7vw),35vh,0) rotate(130deg); }
+  70% { transform:translate3d(calc(var(--leaf-x,0vw) - 5vw),75vh,0) rotate(260deg); }
+  100% { transform:translate3d(calc(var(--leaf-x,0vw) + 9vw),112vh,0) rotate(390deg); opacity:0; }
+}
+.flock-bird { position:absolute; width:42px; height:26px; left:-70px; top:var(--bird-y,25vh); opacity:.75; animation:flockFly var(--bird-duration,10s) linear forwards; }
+.flock-bird svg { width:100%; height:100%; overflow:visible; }
+.flock-bird path { fill:none; stroke:#29453a; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+@keyframes flockFly {
+  0% { transform:translate3d(-8vw,0,0) scale(var(--bird-scale,1)); opacity:0; }
+  8% { opacity:.72; }
+  45% { transform:translate3d(45vw,var(--bird-drift,2vh),0) scale(var(--bird-scale,1)); }
+  92% { opacity:.72; }
+  100% { transform:translate3d(112vw,calc(var(--bird-drift,2vh) - 2vh),0) scale(var(--bird-scale,1)); opacity:0; }
+}
+.special-bird { position:fixed; z-index:35; width:54px; height:36px; left:0; top:0; opacity:0; pointer-events:none; transform:translate(-100px,-100px); }
+.special-bird svg { width:100%; height:100%; overflow:visible; }
+.special-bird .bird-body { fill:#5c4938; }
+.special-bird .bird-wing { fill:#80644c; transform-origin:20px 18px; }
+.special-bird .bird-beak { fill:#d7a83e; }
+.special-bird .bird-eye { fill:#102b25; }
+.special-bird.pecking .bird-head { animation:birdPeck .48s ease-in-out infinite; transform-origin:39px 13px; }
+.special-bird.pecking .bird-wing { animation:birdNibbleWing .9s ease-in-out infinite; }
+@keyframes birdPeck {
+  0%,100% { transform:rotate(0deg) translate(0,0); }
+  45% { transform:rotate(12deg) translate(2px,4px); }
+}
+@keyframes birdNibbleWing {
+  50% { transform:rotate(-8deg); }
+}
+.grain-specks { position:fixed; z-index:34; pointer-events:none; display:flex; gap:4px; opacity:0; }
+.grain-specks span { width:5px; height:5px; border-radius:50%; background:#d7a83e; box-shadow:0 1px 2px rgba(0,0,0,.15); }
+.grain-specks.visible { opacity:1; animation:grainFlicker .48s ease-in-out infinite alternate; }
+@keyframes grainFlicker { from { transform:translateY(0); } to { transform:translateY(2px); } }
+@media (prefers-reduced-motion: reduce) {
+  .nature-animation-layer, .special-bird, .grain-specks { display:none !important; }
+}

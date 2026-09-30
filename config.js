@@ -17,6 +17,7 @@ const CONTACT_EMAIL = "your-email@example.com";
 const TIKTOK_URL = "https://www.tiktok.com/@yourusername";
 const FACEBOOK_URL = "https://www.facebook.com/yourusername";
 const YOUTUBE_URL = "https://www.youtube.com/@yourusername";
+const INSTAGRAM_URL = "https://www.instagram.com/yourusername";
 
 const ARTWORKS = [
   {

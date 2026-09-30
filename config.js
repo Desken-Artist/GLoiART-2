@@ -12,6 +12,12 @@
 
 const WHATSAPP_NUMBER = "237XXXXXXXXX";
 
+// Contact & social links — replace these placeholders with your real details.
+const CONTACT_EMAIL = "your-email@example.com";
+const TIKTOK_URL = "https://www.tiktok.com/@yourusername";
+const FACEBOOK_URL = "https://www.facebook.com/yourusername";
+const YOUTUBE_URL = "https://www.youtube.com/@yourusername";
+
 const ARTWORKS = [
   {
     title: "Whispers of Creation",

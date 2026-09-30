@@ -23,7 +23,7 @@
       <a href="#gallery">Gallery</a>
       <a href="#about-artist">Artist</a>
       <a href="#about-gloliart">About GLoiART</a>
-      <a href="#" id="menuWhatsApp">WhatsApp</a>
+      <a href="#contact-me">Contact Me</a>
     </nav>
   </header>
 
@@ -39,7 +39,7 @@
       </div>
       <div id="galleryGrid" class="gallery-grid"></div>
       <div class="see-all-wrap">
-        <a class="button button-gold see-all-button" href="all-artworks.html">See All Artworks</a>
+        <div id="seeAllWrap" class="see-all-wrap" hidden><a class="button button-gold see-all-button" href="all-artworks.html">See All Artworks</a></div>
       </div>
     </section>
 
@@ -75,12 +75,18 @@
       </div>
     </section>
 
-    <section class="cta">
+    <section id="contact-me" class="cta">
       <div>
         <p class="eyebrow">Interested in a piece?</p>
         <h2>Let’s bring a little more nature into your space.</h2>
       </div>
-      <a id="ctaWhatsApp" class="button button-gold" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <div class="contact-actions">
+        <strong>CONTACT ME</strong>
+        <div class="contact-buttons">
+          <a id="ctaWhatsApp" class="button button-gold" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a id="ctaEmail" class="button button-light" href="#">Email</a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -90,6 +96,11 @@
       <strong>GLoiART</strong>
     </div>
     <p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p>
+    <div class="social-links" aria-label="Social media links">
+      <a id="socialTikTok" href="#" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.1a4.1 4.1 0 1 1-3.4-4.04V13a1.7 1.7 0 1 0 1.7 1.7V3h3.1c.3 1.55 1.3 2.72 2.6 3.38v3.04A7.1 7.1 0 0 1 14 7.02V3z"/></svg></a>
+      <a id="socialFacebook" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.25-1.5 1.55-1.5h1.65V3.9c-.29-.04-1.29-.12-2.46-.12-2.44 0-4.11 1.49-4.11 4.23V10H7.4v3h2.73v8h3.37z"/></svg></a>
+      <a id="socialYouTube" href="#" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.19a2.9 2.9 0 0 0-2.04-2.05C17.74 4.65 12 4.65 12 4.65s-5.74 0-7.54.49a2.9 2.9 0 0 0-2.04 2.05A30.3 30.3 0 0 0 1.93 12a30.3 30.3 0 0 0 .49 4.81 2.9 2.9 0 0 0 2.04 2.05c1.8.49 7.54.49 7.54.49s5.74 0 7.54-.49a2.9 2.9 0 0 0 2.04-2.05A30.3 30.3 0 0 0 22.07 12a30.3 30.3 0 0 0-.49-4.81zM9.95 15.3V8.7L15.65 12l-5.7 3.3z"/></svg></a>
+    </div>
     <p class="copyright">© <span id="year"></span> GLoiART. All rights reserved.</p>
   </footer>
 

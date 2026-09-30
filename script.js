@@ -8,8 +8,8 @@ function createArtworkCard(art,index){
   <div class="art-info">
     <h3 class="art-title">${art.title}</h3>
     <div class="card-actions">
-      <a class="small-button whatsapp" href="${whatsappUrl(m)}" target="_blank" rel="noopener">WhatsApp</a>
       <a class="small-button primary" href="artwork.html?id=${index}">View artwork</a>
+      <a class="small-button whatsapp" href="${whatsappUrl(m)}" target="_blank" rel="noopener">BUY</a>
     </div>
   </div>`;
   return c;
@@ -17,15 +17,17 @@ function createArtworkCard(art,index){
 
 function init(){
   const g=document.getElementById("galleryGrid");
-  if(g) g.replaceChildren(...ARTWORKS.slice(0,4).map(createArtworkCard));
+  if(g){
+    g.replaceChildren(...ARTWORKS.slice(0,4).map(createArtworkCard));
+    const seeAllWrap=document.getElementById("seeAllWrap");
+    if(seeAllWrap) seeAllWrap.hidden=ARTWORKS.length<=4;
+  }
 
   const m="Hello GLoiART, I would like to know more about your artworks.";
-  const menuWhatsApp=document.getElementById("menuWhatsApp");
-  if(menuWhatsApp){
-    menuWhatsApp.href=whatsappUrl(m);
-    menuWhatsApp.target="_blank";
-    menuWhatsApp.rel="noopener";
-  }
+  const email=document.getElementById("ctaEmail");
+  if(email) email.href=`mailto:${CONTACT_EMAIL}`;
+  const social={socialTikTok:TIKTOK_URL,socialFacebook:FACEBOOK_URL,socialYouTube:YOUTUBE_URL};
+  Object.entries(social).forEach(([id,url])=>{const el=document.getElementById(id);if(el&&url)el.href=url;});
 
   const toggle=document.getElementById("menuToggle");
   const nav=document.getElementById("mainNav");

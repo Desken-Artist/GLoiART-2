@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://desken-artist.github.io/sitemap.xml

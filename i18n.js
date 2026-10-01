@@ -70,6 +70,28 @@ function applyLanguage(){
   if(switcher){ switcher.textContent=tr('languageSwitch'); switcher.setAttribute('aria-label', lang==='en'?'Switch to French':'Passer en anglais'); }
   const titleBase=document.body.classList.contains('artwork-page')?'GLoiART | Artwork':location.pathname.endsWith('all-artworks.html')?'GLoiART | '+tr('allArtworks'):'GLoiART | '+(lang==='fr'?'Art inspiré par la nature et la Gloire de Dieu':'Art inspired by nature & the Glory of God');
   document.title=titleBase;
+  const descriptions={
+    en: document.body.classList.contains('artwork-page')
+      ? 'Explore artwork details, the creative process, and print options from GLoiART by Cameroonian artist Manesong Kenyem Tchoumen.'
+      : location.pathname.endsWith('all-artworks.html')
+        ? 'Browse the GLoiART art collection by Cameroonian artist Manesong Kenyem Tchoumen. Explore nature-inspired original artworks and prints.'
+        : 'Discover GLoiART, original artworks by Cameroonian artist Manesong Kenyem Tchoumen, inspired by the beauty of nature and created to reflect the Glory of God.',
+    fr: document.body.classList.contains('artwork-page')
+      ? 'Découvrez les détails des œuvres, leur processus de création et les options d’impression de GLoiART, par l’artiste camerounais Manesong Kenyem Tchoumen.'
+      : location.pathname.endsWith('all-artworks.html')
+        ? 'Parcourez la collection GLoiART de l’artiste camerounais Manesong Kenyem Tchoumen : des œuvres originales inspirées par la nature et des impressions.'
+        : 'Découvrez GLoiART, des œuvres originales de l’artiste camerounais Manesong Kenyem Tchoumen, inspirées par la beauté de la nature et créées pour refléter la Gloire de Dieu.'
+  };
+  const description=document.querySelector('meta[name="description"]');
+  if(description) description.content=descriptions[lang];
+  const socialTitle=document.querySelector('meta[property="og:title"]');
+  const socialDescription=document.querySelector('meta[property="og:description"]');
+  const twitterTitle=document.querySelector('meta[name="twitter:title"]');
+  const twitterDescription=document.querySelector('meta[name="twitter:description"]');
+  if(socialTitle) socialTitle.content=titleBase;
+  if(socialDescription) socialDescription.content=descriptions[lang];
+  if(twitterTitle) twitterTitle.content=titleBase;
+  if(twitterDescription) twitterDescription.content=descriptions[lang];
 }
 function initLanguage(){
   applyLanguage();

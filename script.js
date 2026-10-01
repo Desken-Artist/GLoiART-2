@@ -71,8 +71,17 @@ function init(){
         });
       }
     }
-    const seeAllWrap=document.getElementById("seeAllWrap");
-    if(seeAllWrap) seeAllWrap.hidden=ARTWORKS.length<=4;
+    const aboutCommunityLink=document.getElementById("aboutCommunityLink");
+    if(aboutCommunityLink && typeof WHATSAPP_COMMUNITY_URL !== "undefined" &&
+       WHATSAPP_COMMUNITY_URL && WHATSAPP_COMMUNITY_URL !== "PASTE_YOUR_WHATSAPP_GROUP_LINK_HERE"){
+      aboutCommunityLink.href=WHATSAPP_COMMUNITY_URL;
+    } else if(aboutCommunityLink){
+      aboutCommunityLink.href="#";
+      aboutCommunityLink.addEventListener("click", event => {
+        event.preventDefault();
+        alert("Add your WhatsApp group invite link in config.js first.");
+      });
+    }
   }
 
   const m="Hello GLoiART, I would like to know more about your artworks.";

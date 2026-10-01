@@ -431,3 +431,50 @@ footer p { max-width:600px; margin:15px auto; font-size:.83rem; }
     padding: 38px 18px;
   }
 }
+
+
+/* GLoiART v18 refinements */
+.gallery-coming-soon h3,
+.gallery-coming-soon .coming-soon-subtitle,
+.gallery-coming-soon .coming-soon-invite {
+  color: #49345f;
+  font-weight: 700;
+}
+.gallery-coming-soon h3 { font-weight: 700; }
+.gallery-coming-soon p { font-weight: 700; }
+
+.join-community-section {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: #f1edf5;
+}
+.join-community-copy {
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+.join-community-copy h2 {
+  color: var(--forest-deep);
+  margin: 8px 0 14px;
+}
+.join-community-copy > p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 0 auto 26px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.community-button {
+  animation: community-button-shake 6s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes community-button-shake {
+  0%, 88%, 100% { transform: translateX(0) rotate(0); }
+  89% { transform: translateX(-2px) rotate(-1deg); }
+  90% { transform: translateX(2px) rotate(1deg); }
+  91% { transform: translateX(-2px) rotate(-1deg); }
+  92% { transform: translateX(2px) rotate(1deg); }
+  93% { transform: translateX(0) rotate(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .community-button { animation: none; }
+}

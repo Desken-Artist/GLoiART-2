@@ -93,7 +93,7 @@ nav.main-nav a:hover { background:#eef1e9; color:var(--gold); }
 .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 .hero { position:relative; min-height:min(760px, 84vh); overflow:hidden; color:#fff; }
-.hero-art { position:absolute; inset:0; background-image:url("assets/banner.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; }
+.hero-art { position:absolute; inset:0; background-image:url("assets/banner.webp"); background-size:cover; background-position:center center; background-repeat:no-repeat; }
 .hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,24,20,.08) 20%,rgba(8,24,20,.16) 48%,rgba(8,24,20,.88) 100%); }
 .hero-content { position:absolute; z-index:2; left:0; right:0; bottom:0; width:100%; max-width:none; padding:clamp(28px,5vw,60px) clamp(20px,6vw,90px); }
 .eyebrow { text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; font-weight:600; color:var(--leaf); margin:0 0 12px; }

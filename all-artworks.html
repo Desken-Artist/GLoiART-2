@@ -12,24 +12,25 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="GLoiART home"><span class="brand-g-circle"><img src="assets/logo-g.png" alt="GLoiART G logo"></span><img class="brand-logo brand-logo-full" src="assets/logo-full.png" alt="GLoiART"><img class="brand-logo brand-logo-g" src="assets/logo-g.png" alt="GLoiART"></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+    <a class="brand" href="index.html" data-i18n-aria="home"><span class="brand-g-circle"><img src="assets/logo-g.png" alt="GLoiART G logo"></span><img class="brand-logo brand-logo-full" src="assets/logo-full.png" alt="GLoiART"><img class="brand-logo brand-logo-g" src="assets/logo-g.png" alt="GLoiART"></a>
+    <button class="language-toggle" id="languageToggle" type="button">Français</button>
+    <button class="menu-toggle" id="menuToggle" data-i18n-aria="openMenu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
       <span></span><span></span><span></span>
     </button>
     <nav id="mainNav" class="main-nav" aria-label="Main navigation">
-      <a href="index.html#gallery">Gallery</a>
-      <a href="index.html#about-artist">Artist</a>
-      <a href="index.html#about-gloliart">About GLoiART</a>
-      <a href="index.html#contact-me">Contact Me</a>
+      <a href="index.html#gallery" data-i18n="gallery">Gallery</a>
+      <a href="index.html#about-artist" data-i18n="artist">Artist</a>
+      <a href="index.html#about-gloliart" data-i18n="aboutGLoiART">About GLoiART</a>
+      <a href="index.html#contact-me" data-i18n="contactMe">Contact Me</a>
     </nav>
   </header>
 
   <main>
     <section class="all-artworks-header">
-      <a class="back-link" href="index.html#gallery">← Back to gallery</a>
-      <p class="eyebrow">The complete collection</p>
-      <h1>All Artworks</h1>
-      <p>Explore every artwork currently uploaded to the GLoiART collection.</p>
+      <a class="back-link" href="index.html#gallery" data-i18n="backGallery">← Back to gallery</a>
+      <p class="eyebrow" data-i18n="allCollection">The complete collection</p>
+      <h1 data-i18n="allArtworks">All Artworks</h1>
+      <p data-i18n="allIntro">Explore every artwork currently uploaded to the GLoiART collection.</p>
     </section>
     <section class="section gallery-section all-artworks-section">
       <div id="allGalleryGrid" class="gallery-grid"></div>
@@ -38,7 +39,7 @@
 
   <footer>
     <div class="footer-brand"><span class="brand-g-circle footer-g-circle"><img src="assets/logo-g.png" alt="GLoiART G logo"></span><img class="footer-logo-full" src="assets/logo-full.png" alt="GLoiART"></div>
-    <p>Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p>
+    <p data-i18n="footerBio">Creating Artworks inspired by the beauty of nature, that reflects the Glory of God.</p>
     <div class="social-links" aria-label="Social media links">
       <a id="socialTikTok" href="#" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.1a4.1 4.1 0 1 1-3.4-4.04V13a1.7 1.7 0 1 0 1.7 1.7V3h3.1c.3 1.55 1.3 2.72 2.6 3.38v3.04A7.1 7.1 0 0 1 14 7.02V3z"/></svg></a>
       <a id="socialFacebook" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.25-1.5 1.55-1.5h1.65V3.9c-.29-.04-1.29-.12-2.46-.12-2.44 0-4.11 1.49-4.11 4.23V10H7.4v3h2.73v8h3.37z"/></svg></a>
@@ -48,6 +49,7 @@
   </footer>
 
   <script src="config.js"></script>
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded",()=>{
@@ -59,11 +61,12 @@
         } else {
           const empty=document.createElement("p");
           empty.className="no-artwork-message";
-          empty.textContent="No Artwork available yet";
+          empty.textContent=tr("noArtwork");
           g.appendChild(empty);
         }
       }
     });
   </script>
 </body>
+<script>document.addEventListener("DOMContentLoaded",initLanguage);</script>
 </html>

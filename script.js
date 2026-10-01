@@ -8,8 +8,8 @@ function createArtworkCard(art,index){
   <div class="art-info">
     <h3 class="art-title">${art.title}</h3>
     <div class="card-actions">
-      <a class="small-button primary" href="artwork.html?id=${index}">View artwork</a>
-      <a class="small-button whatsapp" href="${whatsappUrl(m)}" target="_blank" rel="noopener">BUY</a>
+      <a class="small-button primary" href="artwork.html?id=${index}">${tr("viewArtwork")}</a>
+      <a class="small-button whatsapp" href="${whatsappUrl(m)}" target="_blank" rel="noopener">${tr("buy")}</a>
     </div>
   </div>`;
   return c;
@@ -43,6 +43,7 @@ function createNatureAnimations(){
 }
 
 function init(){
+  if(typeof applyLanguage === "function") applyLanguage();
   const g=document.getElementById("galleryGrid");
   if(g){
     g.replaceChildren();
@@ -51,7 +52,7 @@ function init(){
     } else {
       const empty=document.createElement("p");
       empty.className="no-artwork-message";
-      empty.textContent="No Artwork available yet";
+      empty.textContent=tr("noArtwork");
       g.appendChild(empty);
     }
     const seeAllWrap=document.getElementById("seeAllWrap");

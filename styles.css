@@ -345,3 +345,24 @@ footer p { max-width:600px; margin:15px auto; font-size:.83rem; }
   margin:0;
   padding:60px 20px;
 }
+
+/* Language switcher */
+.language-toggle {
+  position: relative;
+  z-index: 22;
+  margin-left: auto;
+  margin-right: 10px;
+  border: 1px solid var(--forest);
+  background: transparent;
+  color: var(--forest);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font: 600 .72rem Inter, sans-serif;
+  cursor: pointer;
+  letter-spacing: .04em;
+}
+.language-toggle:hover { background:#eef1e9; }
+@media(max-width:720px){
+  .language-toggle { padding:7px 10px; font-size:.68rem; margin-right:7px; }
+  .site-header { padding-left:14px; padding-right:14px; }
+}

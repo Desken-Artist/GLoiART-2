@@ -478,3 +478,52 @@ footer p { max-width:600px; margin:15px auto; font-size:.83rem; }
 @media (prefers-reduced-motion: reduce) {
   .community-button { animation: none; }
 }
+
+/* v20 text justification refinement
+   Keep each text block in its existing position while justifying the lines.
+   Centered sections keep their final line centered. */
+.hero h1,
+.hero-copy,
+section p,
+section blockquote,
+section figcaption,
+footer p {
+  text-align: justify;
+}
+
+/* Text that was originally centered remains centered as a block, with
+   justified lines and a centered final line. */
+.about-gloliart .section-heading,
+.about-gloliart .section-heading p,
+.video-placeholder,
+.join-community-section,
+.join-community-copy,
+.join-community-copy > p:not(.eyebrow),
+.cta,
+.cta > div:first-child,
+.commission-copy,
+footer {
+  text-align: justify;
+  text-align-last: center;
+}
+
+/* These elements are single-line labels/headings or controls; keeping their
+   original alignment prevents justification from changing their appearance. */
+.eyebrow,
+.button,
+.small-button,
+.details summary,
+.availability-large,
+.spec span,
+.spec strong,
+.video-label,
+.print-box strong,
+.contact-actions > strong,
+.copyright {
+  text-align: initial;
+}
+
+/* Preserve the original centered visual treatment of the artist role. */
+.artist-visual p {
+  text-align-last: center;
+}

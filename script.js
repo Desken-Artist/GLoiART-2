@@ -50,10 +50,26 @@ function init(){
     if(ARTWORKS.length){
       g.append(...ARTWORKS.slice(0,4).map(createArtworkCard));
     } else {
-      const empty=document.createElement("p");
-      empty.className="no-artwork-message";
-      empty.textContent=tr("noArtwork");
+      const empty=document.createElement("div");
+      empty.className="gallery-coming-soon";
+      empty.innerHTML=`
+        <h3>${tr("comingSoonTitle")}</h3>
+        <p class="coming-soon-subtitle">${tr("comingSoonSubtitle")}</p>
+        <p class="coming-soon-invite">${tr("comingSoonInvite")}</p>
+        <a class="button button-gold community-button" id="whatsappCommunityLink" href="#" target="_blank" rel="noopener">${tr("joinCommunity")}</a>
+      `;
       g.appendChild(empty);
+      const communityLink=document.getElementById("whatsappCommunityLink");
+      if(communityLink && typeof WHATSAPP_COMMUNITY_URL !== "undefined" &&
+         WHATSAPP_COMMUNITY_URL && WHATSAPP_COMMUNITY_URL !== "PASTE_YOUR_WHATSAPP_GROUP_LINK_HERE"){
+        communityLink.href=WHATSAPP_COMMUNITY_URL;
+      } else if(communityLink){
+        communityLink.href="#";
+        communityLink.addEventListener("click", event => {
+          event.preventDefault();
+          alert("Add your WhatsApp group invite link in config.js first.");
+        });
+      }
     }
     const seeAllWrap=document.getElementById("seeAllWrap");
     if(seeAllWrap) seeAllWrap.hidden=ARTWORKS.length<=4;

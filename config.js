@@ -19,4 +19,7 @@ const FACEBOOK_URL = "https://www.facebook.com/yourusername";
 const YOUTUBE_URL = "https://www.youtube.com/@yourusername";
 const INSTAGRAM_URL = "https://www.instagram.com/yourusername";
 
+// Paste your WhatsApp Community/group invite link between the quotation marks.
+const WHATSAPP_COMMUNITY_URL = "PASTE_YOUR_WHATSAPP_GROUP_LINK_HERE";
+
 const ARTWORKS = [];

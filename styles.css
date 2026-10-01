@@ -376,3 +376,58 @@ footer p { max-width:600px; margin:15px auto; font-size:.83rem; }
   .brand-logo-full { display:block; width:120px; max-height:36px; }
   .footer-logo-full { width:150px; max-height:44px; }
 }
+
+
+/* v17: coming-soon gallery announcement and more restrained hero typography */
+.hero h1 {
+  font-size: clamp(1.75rem, 3.7vw, 3.8rem);
+  line-height: 1.04;
+}
+.gallery-coming-soon {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 280px;
+  padding: 52px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  text-align: center;
+  color: var(--forest);
+  background: rgba(255,255,255,.48);
+  border: 1px solid rgba(35,65,48,.12);
+  border-radius: 18px;
+}
+.gallery-coming-soon h3 {
+  margin: 0;
+  max-width: 900px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.6rem);
+  line-height: 1;
+  font-weight: 700;
+}
+.gallery-coming-soon p {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-size: clamp(.9rem, 1.5vw, 1.05rem);
+  line-height: 1.55;
+}
+.gallery-coming-soon .coming-soon-invite {
+  margin-top: 3px;
+  font-weight: 600;
+}
+.community-button {
+  margin-top: 9px;
+  text-decoration: none;
+}
+@media (max-width: 720px) {
+  .hero h1 {
+    font-size: clamp(1.55rem, 6vw, 2.45rem);
+    line-height: 1.08;
+  }
+  .gallery-coming-soon {
+    min-height: 245px;
+    padding: 38px 18px;
+  }
+}

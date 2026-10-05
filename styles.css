@@ -176,10 +176,10 @@ h1 strong { color:var(--gold-light); font-weight:600; }
 .print-box p { margin:4px 0 0; font-size:.83rem; color:var(--muted); }
 
 .about-artist { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:center; background:var(--paper); }
-.artist-visual { min-height:460px; border-radius:28px; background:radial-gradient(circle at 70% 20%,#a9bf9f 0 8%,transparent 9%), linear-gradient(145deg,#1b4438,#5d765a); display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; overflow:hidden; position:relative; }
-.artist-visual:before { content:""; position:absolute; width:300px; height:300px; border:1px solid rgba(255,255,255,.2); border-radius:50%; box-shadow:0 0 0 45px rgba(255,255,255,.04),0 0 0 90px rgba(255,255,255,.025); }
-.artist-monogram { font-family:"Cormorant Garamond",serif; font-size:8rem; line-height:1; z-index:1; color:var(--gold-light); }
-.artist-visual p { z-index:1; letter-spacing:.13em; text-transform:uppercase; font-size:.7rem; }
+.artist-visual { min-height:460px; border-radius:28px; background:#1b4438; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; color:#fff; overflow:hidden; position:relative; }
+.artist-visual:before { content:""; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(0,0,0,0) 55%,rgba(0,0,0,.68) 100%); z-index:1; pointer-events:none; }
+.artist-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%; }
+.artist-visual p { position:relative; z-index:2; margin:0 0 24px; letter-spacing:.13em; text-transform:uppercase; font-size:.7rem; text-align:center; }
 .about-copy h2 { font-size:clamp(2.7rem,5vw,4.5rem); color:var(--forest); margin-bottom:25px; }
 .about-copy p { color:var(--muted); max-width:700px; }
 .about-copy blockquote { border-left:3px solid var(--gold); padding-left:20px; font-family:"Cormorant Garamond",serif; font-size:1.5rem; color:var(--forest); margin-top:30px; }
